@@ -1,0 +1,21 @@
+include ./layouts/mainLayout
+div.container
+    div.border.border-dark.mx-auto
+        h1 Interest Survey Results
+        table.table
+            thead
+                tr
+                    th(scope='col') Category
+                    th(scope='col') Total Points
+                    th(scope='col') Percent
+                    th(scope='col') Description
+            each category in categories
+                tbody
+                    tr
+                        td(scope='col') #{category.cat}
+                        // - let points = cData[category.catId];
+                        // - let result = ((points / 6) * 100).toPrecision(2);
+                        td(scope='col') #{cData[category.catId]}
+                        td(scope='col') #{percent[category.catId]}%
+                        td(scope='col') #{category.desc}
+

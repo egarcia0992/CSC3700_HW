@@ -1,0 +1,23 @@
+include layouts/mainLayout
+div.container
+    div.border.border-dark.mx-auto
+        h2 Interest Survey
+        p
+
+        if questions.length == 0
+            h2 Sorry no current survey
+        else
+            form(method="post" action="/surveyResults")
+                each question in questions
+                    .row
+                        .col-md-6
+                            p #{question.q}
+                        .col-md-6
+                            select(id=question.id name=question.id)
+                                option(value="0" selected="selected") A little
+                                option(value="1") Sometimes
+                                option(value="2") As Much as possible
+
+                div.text-center
+                    a.nav-link(href=`/surveyResults`)
+                        button.btn.btn-primary Submit Form
